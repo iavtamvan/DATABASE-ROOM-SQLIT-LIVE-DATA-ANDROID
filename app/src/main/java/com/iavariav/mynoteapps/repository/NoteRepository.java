@@ -3,6 +3,7 @@ package com.iavariav.mynoteapps.repository;
 import android.app.Application;
 
 import androidx.lifecycle.LiveData;
+import androidx.paging.DataSource;
 
 import com.iavariav.mynoteapps.database.Note;
 import com.iavariav.mynoteapps.database.NoteDao;
@@ -22,7 +23,7 @@ public class NoteRepository {
         mNotesDao = db.noteDao();
     }
 
-    public LiveData<List<Note>> getAllNotes() {
+    public DataSource.Factory<Integer, Note> getAllNotes() {
         return mNotesDao.getAllNotes();
     }
 
